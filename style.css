@@ -718,4 +718,28 @@ footer .footer-logo {
     font-size: 3rem;
   }
 
+  .custom-cursor,
+.cursor{
+    position:fixed;
+    left:0;
+    top:0;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transition:
+        transform .15s ease,
+        font-size .15s ease;
+
+    font-size:24px;
+}
+
+.custom-cursor.hover,
+.cursor.hover{
+
+    transform:translate(-50%,-50%) scale(1.5);
+
 }
