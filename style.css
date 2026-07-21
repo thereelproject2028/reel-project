@@ -1,0 +1,721 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+@import url('https://api.fontshare.com/v2/css?f[]=open-sauce-one@400,500,600,700&display=swap');
+
+
+:root {
+  --pink: #ffdee6;
+  --brown: #441704;
+  --maroon: #992339;
+  --cream: #f6ede9;
+  --paper: #fffdfb;
+  --shadow: rgba(68, 23, 4, 0.15);
+}
+
+
+/* ================================
+   RESET
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--brown);
+  font-family: 'Open Sauce One', sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* ================================
+   PAPER BACKGROUND
+================================ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+  color: var(--brown);
+}
+
+.script {
+  font-family: 'Beau Rivage', cursive;
+  font-weight: 400;
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(246, 237, 233, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px dashed rgba(153, 35, 57, 0.3);
+}
+
+.nav-wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.brand span {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 10px 18px;
+  border: 1.5px solid var(--maroon);
+  border-radius: 999px;
+
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--maroon);
+  color: var(--pink);
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+
+/* ================================
+   GENERAL PAGE
+================================ */
+
+.page {
+  max-width: 1200px;
+  min-height: calc(100vh - 80px);
+  margin: auto;
+  padding: 80px 40px 100px;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+  min-height: calc(100vh - 80px);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+
+/* HERO WELCOME IMAGE */
+
+.hero-welcome {
+  position: absolute;
+
+  top: 70px;
+  left: 8%;
+
+  width: 330px;
+  max-width: 30vw;
+
+  z-index: 2;
+}
+
+
+/* MAIN LOGO */
+
+.hero-logo {
+  width: 430px;
+  max-width: 55vw;
+
+  margin-top: 40px;
+
+  position: relative;
+  z-index: 5;
+
+  transition: transform 0.4s ease;
+}
+
+.hero-logo:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+
+/* HERO SCRIPT */
+
+.hero-script {
+  margin-top: 20px;
+
+  font-family: 'Beau Rivage', cursive;
+  font-size: 5.5rem;
+  line-height: 0.9;
+
+  position: relative;
+  z-index: 5;
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero-description {
+  max-width: 650px;
+
+  margin-top: 35px;
+
+  font-size: 1.15rem;
+  line-height: 1.7;
+
+  position: relative;
+  z-index: 5;
+}
+
+
+/* ================================
+   HERO CAMERA
+================================ */
+
+.hero-camera {
+  position: absolute;
+
+  top: 25%;
+  right: 10%;
+
+  width: 110px;
+  height: auto;
+
+  z-index: 3;
+
+  animation: floatCamera 5s ease-in-out infinite;
+}
+
+
+/* ================================
+   HERO STARS
+================================ */
+
+.hero-star {
+  position: absolute;
+
+  width: 75px;
+  height: auto;
+
+  z-index: 2;
+
+  animation: floatStar 4s ease-in-out infinite;
+}
+
+.star-one {
+  top: 22%;
+  left: 10%;
+}
+
+.star-two {
+  top: 18%;
+  right: 17%;
+}
+
+.star-three {
+  bottom: 18%;
+  left: 18%;
+}
+
+.star-four {
+  bottom: 12%;
+  right: 12%;
+}
+
+
+@keyframes floatStar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+}
+
+
+@keyframes floatCamera {
+  0%,
+  100% {
+    transform: translateY(0) rotate(4deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(-4deg);
+  }
+}
+
+
+/* ================================
+   PAGE TITLES
+================================ */
+
+.page-kicker {
+  text-align: center;
+
+  color: var(--maroon);
+
+  font-family: 'Beau Rivage', cursive;
+  font-size: 2.5rem;
+}
+
+.page-title {
+  text-align: center;
+
+  font-size: 4rem;
+
+  margin-top: 5px;
+}
+
+
+/* ================================
+   SCRAPBOOK PAPER
+================================ */
+
+.scrapbook-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 60px;
+
+  margin-top: 70px;
+}
+
+.paper {
+  position: relative;
+
+  background: var(--paper);
+
+  padding: 50px 45px;
+
+  box-shadow: 0 12px 25px var(--shadow);
+
+  transform: rotate(-1.5deg);
+
+  transition: 0.35s ease;
+}
+
+.paper:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.paper:hover {
+  transform: translateY(-10px) rotate(0deg);
+  box-shadow: 0 20px 35px rgba(68, 23, 4, 0.2);
+}
+
+.paper h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.paper p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+/* ================================
+   PAPER TAPE
+================================ */
+
+.tape {
+  position: absolute;
+
+  width: 100px;
+  height: 30px;
+
+  top: -15px;
+  left: 50%;
+
+  transform: translateX(-50%) rotate(-3deg);
+
+  background: var(--pink);
+
+  box-shadow: 0 3px 6px var(--shadow);
+}
+
+
+/* ================================
+   SERVICES
+================================ */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 40px;
+
+  margin-top: 70px;
+}
+
+.service-card {
+  background: var(--paper);
+
+  padding: 45px 35px;
+
+  min-height: 280px;
+
+  box-shadow: 0 10px 25px var(--shadow);
+
+  transition: 0.35s ease;
+
+  text-align: center;
+}
+
+.service-card:nth-child(1) {
+  transform: rotate(-3deg);
+}
+
+.service-card:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.service-card:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.service-card:hover {
+  transform: translateY(-12px) rotate(0deg) scale(1.03);
+}
+
+.service-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.service-card p {
+  line-height: 1.7;
+}
+
+
+/* ================================
+   PORTFOLIO
+================================ */
+
+.portfolio-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 40px;
+
+  margin-top: 70px;
+}
+
+.project {
+  background: var(--paper);
+
+  padding: 12px 12px 25px;
+
+  box-shadow: 0 10px 20px var(--shadow);
+
+  cursor: pointer;
+
+  transition: 0.35s ease;
+}
+
+.project:hover {
+  transform: translateY(-12px) rotate(0deg) scale(1.03);
+}
+
+.project:nth-child(1) {
+  transform: rotate(-3deg);
+}
+
+.project:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.project:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+.project-image {
+  width: 100%;
+  height: 240px;
+
+  background: var(--pink);
+
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.project:hover img {
+  transform: scale(1.08);
+}
+
+.project-info {
+  padding: 18px 8px 5px;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+}
+
+.project-info p {
+  line-height: 1.5;
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+
+.contact-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  margin-top: 70px;
+}
+
+.contact-paper {
+  background: var(--paper);
+
+  padding: 45px;
+
+  box-shadow: 0 12px 25px var(--shadow);
+
+  transform: rotate(-1deg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+label {
+  color: var(--maroon);
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1.5px solid var(--maroon);
+  border-radius: 10px;
+
+  background: var(--pink);
+
+  font-family: inherit;
+}
+
+button {
+  border: none;
+
+  padding: 14px 25px;
+
+  border-radius: 999px;
+
+  background: var(--maroon);
+  color: var(--pink);
+
+  font-family: inherit;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+button:hover {
+  background: var(--brown);
+  transform: translateY(-3px);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.contact-note {
+  font-family: 'Beau Rivage', cursive;
+  font-size: 3rem;
+  color: var(--maroon);
+}
+
+.contact-info a {
+  color: var(--brown);
+
+  font-weight: bold;
+
+  border-bottom: 2px dotted var(--maroon);
+
+  width: fit-content;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  background: var(--maroon);
+
+  color: var(--pink);
+
+  text-align: center;
+
+  padding: 35px;
+}
+
+footer .footer-logo {
+  font-family: 'Beau Rivage', cursive;
+
+  font-size: 2rem;
+}
+
+
+/* ================================
+   SCROLL ANIMATION
+================================ */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 800px) {
+
+  .nav-wrap {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-welcome {
+    width: 220px;
+    top: 40px;
+    left: 5%;
+  }
+
+  .hero-logo {
+    width: 300px;
+  }
+
+  .hero-script {
+    font-size: 4rem;
+  }
+
+  .hero-camera {
+    width: 75px;
+    right: 5%;
+  }
+
+  .scrapbook-grid,
+  .services-grid,
+  .portfolio-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 3rem;
+  }
+
+}
